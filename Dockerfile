@@ -1,10 +1,10 @@
-FROM opensuse:42.1
+FROM opensuse/tumbleweed
 
 MAINTAINER Kristoffer Gronlund <kgronlund@suse.com>
 
 ENV container=docker
 
-RUN zypper -n --gpg-auto-import-keys ar -C obs://network:ha-clustering:Factory/openSUSE_Leap_42.1 network:ha-clustering:Factory && \
+RUN zypper -n --gpg-auto-import-keys ar -C obs://network:ha-clustering:Factory/openSUSE_Tumbleweed network:ha-clustering:Factory && \
     zypper -n --gpg-auto-import-keys ref && \
     zypper -n --gpg-auto-import-keys in -l dbus-1 net-tools fence-agents ha-cluster-bootstrap && \
     systemctl enable hawk
